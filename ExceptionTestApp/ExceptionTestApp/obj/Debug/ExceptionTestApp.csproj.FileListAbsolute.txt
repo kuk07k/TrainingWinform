@@ -1,0 +1,7 @@
+C:\Users\admin\source\repos\ExceptionTestApp\ExceptionTestApp\bin\Debug\ExceptionTestApp.exe.config
+C:\Users\admin\source\repos\ExceptionTestApp\ExceptionTestApp\bin\Debug\ExceptionTestApp.exe
+C:\Users\admin\source\repos\ExceptionTestApp\ExceptionTestApp\bin\Debug\ExceptionTestApp.pdb
+C:\Users\admin\source\repos\ExceptionTestApp\ExceptionTestApp\obj\Debug\ExceptionTestApp.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\ExceptionTestApp\ExceptionTestApp\obj\Debug\ExceptionTestApp.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\ExceptionTestApp\ExceptionTestApp\obj\Debug\ExceptionTestApp.exe
+C:\Users\admin\source\repos\ExceptionTestApp\ExceptionTestApp\obj\Debug\ExceptionTestApp.pdb
