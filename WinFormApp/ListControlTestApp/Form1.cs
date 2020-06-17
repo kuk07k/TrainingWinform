@@ -41,5 +41,19 @@ namespace ListControlTestApp
         {
             label1.Text = "결과 : " + comboBox1.SelectedItem.ToString();
         }
+
+        //************* 검색하고 Enter쳤을때 값넣을때**************//
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e) 
+        {
+            if (e.KeyChar == 13) //keypress값은 13 // 정해져있음
+            {
+                button1_Click(sender, e);
+            }
+        }
+
+        private void ss(object sender, EventArgs e)
+        {
+
+        }
     }
 }
