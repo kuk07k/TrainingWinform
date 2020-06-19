@@ -69,29 +69,49 @@ namespace BookRentalShop20
 
             string struserid = string.Empty;
 
-            using (SqlConnection conn = new SqlConnection(strConnString))
+            try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT userID FROM usertbl " + //  처음과 마지막에 띄어쓰기 해줘야함
-                                  " WHERE userID = @userID " +    //  해킹방지
-                                  "   AND password = @password ";
+                using (SqlConnection conn = new SqlConnection(strConnString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT userID FROM usertbl " + //  처음과 마지막에 띄어쓰기 해줘야함
+                                      " WHERE userID = @userID " +    //  해킹방지
+                                      "   AND password = @password ";
 
-                SqlParameter parmUserId = new SqlParameter("@userID", SqlDbType.VarChar, 12);
-                parmUserId.Value = TxtUserID.Text;
-                cmd.Parameters.Add(parmUserId);
-                SqlParameter parmPassworrd = new SqlParameter("@password", SqlDbType.VarChar, 20);
-                parmPassworrd.Value = TxtPassword.Text;
-                cmd.Parameters.Add(parmPassworrd);
+                    SqlParameter parmUserId = new SqlParameter("@userID", SqlDbType.VarChar, 12);
+                    parmUserId.Value = TxtUserID.Text;
+                    cmd.Parameters.Add(parmUserId);
+                    SqlParameter parmPassworrd = new SqlParameter("@password", SqlDbType.VarChar, 20);
+                    parmPassworrd.Value = TxtPassword.Text;
+                    cmd.Parameters.Add(parmPassworrd);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                struserid = reader["userID"].ToString();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    struserid = reader["userID"] != null ? reader["userID"].ToString() : "";
 
-                MetroMessageBox.Show(this, "접속성공", "로그인");
-                Debug.WriteLine("On the Debug");
+                    if (struserid != "")
+                    {
+                        MetroMessageBox.Show(this, "접속성공", "로그인성공");
+                        this.Close(); // 로그인 폼이 닫힘
+                    }
+                    else
+                    {
+                        MetroMessageBox.Show(this, "접속성공", "로그인실패", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    //Debug.WriteLine("On the Debug");
+                }
             }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, $"Error : {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // StackTrace : 에러난 부분을 알려줌 // Message : 오류가 났다고 알려줌
+                return;
+            }
+
+           
         }
     }
 }
