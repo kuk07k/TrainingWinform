@@ -10,7 +10,6 @@ namespace BookRentalShop20
 {
     public partial class UserForm : MetroForm
     {
-        string strConnString = "Data Source=192.168.0.126;Initial Catalog = BookRentalshopDB; Persist Security Info=True;User ID = sa; Password=p@ssw0rd!!";
         string mode = "";
         public UserForm()
         {
@@ -24,7 +23,7 @@ namespace BookRentalShop20
 
         private void UpdateData()
         {
-            using (SqlConnection conn = new SqlConnection(strConnString)) 
+            using (SqlConnection conn = new SqlConnection(Commons.CONNSTRING)) 
             {
                 conn.Open(); 
                 String strQuery = "SELECT id, userID, password, lastLoginDt, loginIpAddr " +
@@ -112,7 +111,7 @@ namespace BookRentalShop20
                 return;
             }
             //DB저장프로세스
-            using (SqlConnection conn = new SqlConnection(strConnString))
+            using (SqlConnection conn = new SqlConnection(Commons.CONNSTRING))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
@@ -174,7 +173,7 @@ namespace BookRentalShop20
 
         private void DeleteProcess()
         {
-            using (SqlConnection conn = new SqlConnection(strConnString))
+            using (SqlConnection conn = new SqlConnection(Commons.CONNSTRING))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
