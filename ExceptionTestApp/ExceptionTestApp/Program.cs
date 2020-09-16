@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ExceptionTestApp
+
+    //try, catch 문
 {
     class Program
     {
