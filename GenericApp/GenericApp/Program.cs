@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace GenericApp
 {
+    // GenericApp
     public class SimpleGerneric<T> // 함수를 하나가지고 여러 변수형을 사용하기 위해서
     {
         private T[] values;
